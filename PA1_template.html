@@ -55,10 +55,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 
 
-<div id="loading-and-preprocessing-the-data" class="section level2">
-<h2>Loading and preprocessing the data</h2>
-<div id="process-and-load-data" class="section level3">
-<h3>Process and Load Data</h3>
+<div id="loading-and-preprocessing-the-data" class="section level3">
+<h3>Loading and preprocessing the data</h3>
 <pre class="r"><code>unzip(&quot;activity.zip&quot;)
 data &lt;- read.csv(&quot;activity.csv&quot;)
 dim(data)</code></pre>
@@ -68,10 +66,10 @@ dim(data)</code></pre>
 ##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ date    : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...</code></pre>
+<p><strong>Next we will explore the data with a series of questions:</strong><br />1. What is the mean total number of steps taken per day?<br />2. What is the average daily activity pattern?<br />3. Imputing missing values<br />4. Are there differences in activity patterns between weekdays and weekends?</p>
 </div>
-</div>
-<div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
-<h2>What is mean total number of steps taken per day?</h2>
+<div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level3">
+<h3>1: What is mean total number of steps taken per day?</h3>
 <pre class="r"><code>mean(data['steps'][ !is.na(data['steps'])])</code></pre>
 <pre><code>## [1] 37.3826</code></pre>
 <p>I’m not sure why <code>mean(data['steps'], na.rm=TRUE)</code> wouldn’t work, but it gave me the following output:</p>
@@ -80,14 +78,14 @@ Warning message:
 In mean.default(data[&quot;steps&quot;], na.rm = TRUE) :
   argument is not numeric or logical: returning NA</code></pre>
 </div>
-<div id="what-is-the-average-daily-activity-pattern" class="section level2">
-<h2>What is the average daily activity pattern?</h2>
+<div id="what-is-the-average-daily-activity-pattern" class="section level3">
+<h3>2: What is the average daily activity pattern?</h3>
 </div>
-<div id="imputing-missing-values" class="section level2">
-<h2>Imputing missing values</h2>
+<div id="imputing-missing-values" class="section level3">
+<h3>3: Imputing missing values</h3>
 </div>
-<div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
-<h2>Are there differences in activity patterns between weekdays and weekends?</h2>
+<div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level3">
+<h3>4: Are there differences in activity patterns between weekdays and weekends?</h3>
 </div>
 
 

@@ -1,9 +1,8 @@
 # Reproducible Research: Peer Assessment 1
 
 
-## Loading and preprocessing the data
+### Loading and preprocessing the data
 
-### Process and Load Data
 
 ```r
 unzip("activity.zip")
@@ -26,7 +25,13 @@ str(data)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
-## What is mean total number of steps taken per day?
+**Next we will explore the data with a series of questions:**  
+1. What is the mean total number of steps taken per day?  
+2. What is the average daily activity pattern?  
+3. Imputing missing values  
+4. Are there differences in activity patterns between weekdays and weekends?  
+
+### 1: What is mean total number of steps taken per day?
 
 
 ```r
@@ -45,12 +50,10 @@ In mean.default(data["steps"], na.rm = TRUE) :
   argument is not numeric or logical: returning NA
 ```
 
-## What is the average daily activity pattern?
+### 2: What is the average daily activity pattern?
 
 
-
-## Imputing missing values
-
+### 3: Imputing missing values
 
 
-## Are there differences in activity patterns between weekdays and weekends?
+### 4: Are there differences in activity patterns between weekdays and weekends?
