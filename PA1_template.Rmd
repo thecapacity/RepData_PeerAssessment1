@@ -18,7 +18,7 @@ str(data)
 No post-processing currently seems necessary as items seem to be in appropropate formats.
 
 One potential alternation would be to converte date from a factor to a date format via:
-```as.Date(data['date'][,], format="%Y-%m-%d")```
+```data['date'] <- as.Date(data['date'][,], format="%Y-%m-%d")```
 
 **Next we will explore the data with a series of questions:**  
 1. What is the mean total number of steps taken per day?  
@@ -35,6 +35,26 @@ mean(data['steps'][ !is.na(data['steps'])])
 An alternative method of calculation would be: ```mean(data['steps'][,], na.rm=TRUE)``` and also yields the same result: ```r mean(data['steps'][,], na.rm=TRUE)```
 
 ### 2: What is the average daily activity pattern?
+
+The average daily activity pattern is calculated by summarizing the average activity per day, and then visualized via a graph, with the overall daily average, rounded to 2 decimal points, represented as a horizontal line.
+
+The data is converted to a data.table to facilitate date grouping.
+
+```r
+library(data.table)
+dt_data <- data.table(data)
+averages <- dt_data[, mean(steps), by=c("date")]
+overall_average <- mean(averages[['V1']], na.rm=TRUE)
+
+plot(averages, 
+    ylab="Ave. Steps",
+    xlab="Date")
+title("Average Steps per Day")
+abline(h=overall_average, col=2)
+text(-1, 30, adj=c(0,0), labels=round(overall_average,2), col=2)
+```
+
+Note: ```NA``` values are removed, by default, for the overall average and will not be graphed.
 
 
 ### 3: Imputing missing values

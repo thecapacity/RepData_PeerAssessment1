@@ -67,7 +67,7 @@ dim(data)</code></pre>
 ##  $ date    : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...</code></pre>
 <p>No post-processing currently seems necessary as items seem to be in appropropate formats.</p>
-<p>One potential alternation would be to converte date from a factor to a date format via: <code>as.Date(data['date'][,], format=&quot;%Y-%m-%d&quot;)</code></p>
+<p>One potential alternation would be to converte date from a factor to a date format via: <code>data['date'] &lt;- as.Date(data['date'][,], format=&quot;%Y-%m-%d&quot;)</code></p>
 <p><strong>Next we will explore the data with a series of questions:</strong><br />1. What is the mean total number of steps taken per day?<br />2. What is the average daily activity pattern?<br />3. Imputing missing values<br />4. Are there differences in activity patterns between weekdays and weekends?</p>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level3">
@@ -78,6 +78,20 @@ dim(data)</code></pre>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level3">
 <h3>2: What is the average daily activity pattern?</h3>
+<p>The average daily activity pattern is calculated by summarizing the average activity per day, and then visualized via a graph, with the overall daily average, rounded to 2 decimal points, represented as a horizontal line.</p>
+<p>The data is converted to a data.table to facilitate date grouping.</p>
+<pre class="r"><code>library(data.table)
+dt_data &lt;- data.table(data)
+averages &lt;- dt_data[, mean(steps), by=c(&quot;date&quot;)]
+overall_average &lt;- mean(averages[['V1']], na.rm=TRUE)
+
+plot(averages, 
+    ylab=&quot;Ave. Steps&quot;,
+    xlab=&quot;Date&quot;)
+title(&quot;Average Steps per Day&quot;)
+abline(h=overall_average, col=2)
+text(-1, 30, adj=c(0,0), labels=round(overall_average,2), col=2)</code></pre>
+<p>Note: <code>NA</code> values are removed, by default, for the overall average and will not be graphed.</p>
 </div>
 <div id="imputing-missing-values" class="section level3">
 <h3>3: Imputing missing values</h3>
