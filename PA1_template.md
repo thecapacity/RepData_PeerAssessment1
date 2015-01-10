@@ -25,6 +25,8 @@ str(data)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
+No post-processing currently seems necessary as items like data already seem to be in appropropate formats.
+
 **Next we will explore the data with a series of questions:**  
 1. What is the mean total number of steps taken per day?  
 2. What is the average daily activity pattern?  
@@ -42,13 +44,7 @@ mean(data['steps'][ !is.na(data['steps'])])
 ## [1] 37.3826
 ```
 
-I'm not sure why ```mean(data['steps'], na.rm=TRUE)``` wouldn't work, but it gave me the following output:
-```
-[1] NA
-Warning message:
-In mean.default(data["steps"], na.rm = TRUE) :
-  argument is not numeric or logical: returning NA
-```
+An alternative method of calculation would be: ```mean(data['steps'][,], na.rm=TRUE)``` and also yields the same result: ``37.3825996``
 
 ### 2: What is the average daily activity pattern?
 

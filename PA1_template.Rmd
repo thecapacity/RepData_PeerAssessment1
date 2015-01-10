@@ -29,13 +29,7 @@ No post-processing currently seems necessary as items like data already seem to 
 mean(data['steps'][ !is.na(data['steps'])])
 ```
 
-I'm not sure why ```mean(data['steps'], na.rm=TRUE)``` wouldn't work, but it gave me the following output:
-```
-[1] NA
-Warning message:
-In mean.default(data["steps"], na.rm = TRUE) :
-  argument is not numeric or logical: returning NA
-```
+An alternative method of calculation would be: ```mean(data['steps'][,], na.rm=TRUE)``` and also yields the same result: ```r mean(data['steps'][,], na.rm=TRUE)```
 
 ### 2: What is the average daily activity pattern?
 

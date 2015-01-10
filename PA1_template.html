@@ -66,17 +66,14 @@ dim(data)</code></pre>
 ##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ date    : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...</code></pre>
+<p>No post-processing currently seems necessary as items like data already seem to be in appropropate formats.</p>
 <p><strong>Next we will explore the data with a series of questions:</strong><br />1. What is the mean total number of steps taken per day?<br />2. What is the average daily activity pattern?<br />3. Imputing missing values<br />4. Are there differences in activity patterns between weekdays and weekends?</p>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level3">
 <h3>1: What is mean total number of steps taken per day?</h3>
 <pre class="r"><code>mean(data['steps'][ !is.na(data['steps'])])</code></pre>
 <pre><code>## [1] 37.3826</code></pre>
-<p>I’m not sure why <code>mean(data['steps'], na.rm=TRUE)</code> wouldn’t work, but it gave me the following output:</p>
-<pre><code>[1] NA
-Warning message:
-In mean.default(data[&quot;steps&quot;], na.rm = TRUE) :
-  argument is not numeric or logical: returning NA</code></pre>
+<p>An alternative method of calculation would be: <code>mean(data['steps'][,], na.rm=TRUE)</code> and also yields the same result: <code>37.3825996</code></p>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level3">
 <h3>2: What is the average daily activity pattern?</h3>
