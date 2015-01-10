@@ -15,6 +15,8 @@ dim(data)
 str(data)
 ```
 
+No post-processing currently seems necessary as items like data already seem to be in appropropate formats.
+
 **Next we will explore the data with a series of questions:**  
 1. What is the mean total number of steps taken per day?  
 2. What is the average daily activity pattern?  
