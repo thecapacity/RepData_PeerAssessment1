@@ -15,7 +15,10 @@ dim(data)
 str(data)
 ```
 
-No post-processing currently seems necessary as items like data already seem to be in appropropate formats.
+No post-processing currently seems necessary as items seem to be in appropropate formats.
+
+One potential alternation would be to converte date from a factor to a date format via:
+```as.Date(data['date'][,], format="%Y-%m-%d")```
 
 **Next we will explore the data with a series of questions:**  
 1. What is the mean total number of steps taken per day?  

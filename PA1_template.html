@@ -66,7 +66,8 @@ dim(data)</code></pre>
 ##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ date    : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...</code></pre>
-<p>No post-processing currently seems necessary as items like data already seem to be in appropropate formats.</p>
+<p>No post-processing currently seems necessary as items seem to be in appropropate formats.</p>
+<p>One potential alternation would be to converte date from a factor to a date format via: <code>as.Date(data['date'][,], format=&quot;%Y-%m-%d&quot;)</code></p>
 <p><strong>Next we will explore the data with a series of questions:</strong><br />1. What is the mean total number of steps taken per day?<br />2. What is the average daily activity pattern?<br />3. Imputing missing values<br />4. Are there differences in activity patterns between weekdays and weekends?</p>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level3">

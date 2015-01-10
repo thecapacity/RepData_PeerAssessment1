@@ -25,7 +25,10 @@ str(data)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
-No post-processing currently seems necessary as items like data already seem to be in appropropate formats.
+No post-processing currently seems necessary as items seem to be in appropropate formats.
+
+One potential alternation would be to converte date from a factor to a date format via:
+```as.Date(data['date'][,], format="%Y-%m-%d")```
 
 **Next we will explore the data with a series of questions:**  
 1. What is the mean total number of steps taken per day?  
