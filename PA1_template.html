@@ -203,6 +203,11 @@ hr {
 <body>
 <h3>Setup some defaults</h3>
 
+<pre><code class="r">###, echo=FALSE} ##Didn&#39;t like that this didn&#39;t show
+library(knitr)
+opts_chunk$set(echo = TRUE, fig.path=&quot;figure/&quot;, dev=&quot;png&quot;)
+</code></pre>
+
 <p>Note, some global defaults for the RMarkdown processing are set, but not shown, to ensure code chunks are always visible for peer review.</p>
 
 <p>*<em>The final output for this assignment should be generated with: *</em> <code>&gt; knit2html(&quot;PA1_template.Rmd&quot;)</code> via the console.</p>
@@ -210,13 +215,7 @@ hr {
 <h3>Loading and preprocessing the data</h3>
 
 <pre><code class="r">library(data.table)
-</code></pre>
-
-<pre><code>## data.table 1.9.4  For help type: ?data.table
-## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
-</code></pre>
-
-<pre><code class="r">unzip(&quot;activity.zip&quot;)
+unzip(&quot;activity.zip&quot;)
 my_data &lt;- read.csv(&quot;activity.csv&quot;)
 my_data$date &lt;- as.Date(my_data[&#39;date&#39;][,], format=&quot;%Y-%m-%d&quot;)
 my_data$interval &lt;- as.factor(my_data$interval)

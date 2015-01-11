@@ -7,6 +7,11 @@ output:
 
 ### Setup some defaults
 
+```r
+###, echo=FALSE} ##Didn't like that this didn't show
+library(knitr)
+opts_chunk$set(echo = TRUE, fig.path="figure/", dev="png")
+```
 
 Note, some global defaults for the RMarkdown processing are set, but not shown, to ensure code chunks are always visible for peer review.
 
@@ -17,14 +22,6 @@ Note, some global defaults for the RMarkdown processing are set, but not shown, 
 
 ```r
 library(data.table)
-```
-
-```
-## data.table 1.9.4  For help type: ?data.table
-## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
-```
-
-```r
 unzip("activity.zip")
 my_data <- read.csv("activity.csv")
 my_data$date <- as.Date(my_data['date'][,], format="%Y-%m-%d")

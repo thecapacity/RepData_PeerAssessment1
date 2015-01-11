@@ -6,7 +6,8 @@ output:
 ---
 
 ### Setup some defaults
-```{r setoptions, echo=FALSE}
+```{r setoptions}
+###, echo=FALSE} ##Didn't like that this didn't show
 library(knitr)
 opts_chunk$set(echo = TRUE, fig.path="figure/", dev="png")
 ```
