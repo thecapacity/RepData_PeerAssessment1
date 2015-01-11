@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ### Setup some defaults
 
@@ -12,6 +17,14 @@ Note, some global defaults for the RMarkdown processing are set, but not shown, 
 
 ```r
 library(data.table)
+```
+
+```
+## data.table 1.9.4  For help type: ?data.table
+## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
+```
+
+```r
 unzip("activity.zip")
 my_data <- read.csv("activity.csv")
 my_data$date <- as.Date(my_data['date'][,], format="%Y-%m-%d")
@@ -54,7 +67,7 @@ hist( my_data[, sum(steps), by=c("date")][['V1']], breaks=15,
     main = "Total Daily Steps by Frequency")
 ```
 
-![](figure/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 #### Mean Total Steps
 
@@ -100,7 +113,7 @@ title("Average Steps per Day")
 abline(h=overall_average, col=2)
 ```
 
-![](figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 The overall average is ``37.3825996``.
 
@@ -148,7 +161,7 @@ hist( new_data[, sum(steps), by=c("date")][['V1']], breaks=15,
     main = "Total Daily Steps by Frequency")
 ```
 
-![](figure/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 The **new** mean and median total number of steps taken per day, based on this ```new_data``` is:
 
@@ -190,7 +203,7 @@ xyplot(V1 ~ interval | wd_we, data = summary, layout = c(1, 2), type="l",
        ylab="Number of Steps", xlab="Interval")
 ```
 
-![](figure/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
 
 Based on the plots, there appears to be more variability in the average (mean) number of steps during invervals on weekend days.
 
